@@ -1,0 +1,41 @@
+﻿<Window x:Class="DemiGoogle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Google" Height="350" Width="525"
+        ResizeMode="NoResize"  
+    WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None" Focusable="False">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border 
+          Name="Border"
+          CornerRadius="2" 
+          Padding="2"
+          Background="Transparent"
+          BorderBrush="Transparent"
+          BorderThickness="1" >
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="#EEEEEE"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#EEEEEE"/>
+                                <Setter Property="Foreground" Value="#888888"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <TextBox BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Stretch" Height="auto" Margin="116,173,109,157" TextWrapping="Wrap" VerticalAlignment="Center" Width="500" TextChanged="textChanged" FlowDirection="RightToLeft" TextAlignment="Left" Panel.ZIndex="1" FontSize="24" MaxLines="1"/>
+        <Image HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="auto" Source="Untitled.png"/>
+    </Grid>
+</Window>
